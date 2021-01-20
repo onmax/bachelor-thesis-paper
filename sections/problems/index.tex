@@ -1,0 +1,38 @@
+\section{Problemas encontrados}
+
+Durante el desarrollo de este trabajo no hemos encontrado con distintos problemas tanto a la hora de desarrollar las redes neuronales como al preprocesado necesario para poder crear el \textit{dataset}.
+
+\subsection{Estructura del dataset}
+Toda red neuronal tiene como requisito tener una arquitectura bien definida antes de poder ser creada. Entre otros parámetros, hay que definir tanto la entrada como la salida con la que el modelo trabajará. Al principio del desarrollo, al entrenar las primeras redes de prueba, obteníamos valores muy malos para lo que estábamos esperando. Todo ello era consecuencia de la mala definición que se había llevado a cabo para entrenar las redes.
+\newline
+
+Principalmente el error se encontraba en qué estaba contemplando desde el principio que una red pudiese aceptar una matriz como entrada, lo cual, no es cierta dicha afirmación. Una red siempre tiene que trabajar con vectores para las variables $x$ e $y$.
+\newline
+
+Posteriormente, desarrollé una estructura que tenía más sentido y con la cual la red obtenía mejores resultados. El problema de esta solución fue el tiempo de entrenamiento cuando se intentaba entrenar a una red básica. Era inviable seguir con esta estructura de datos.
+\newline
+
+Finalmente, tras varias reuniones con el tutor y con ayuda de un estudiante de doctorado llegamos a la conclusión que la mejor forma de entrenar a la red neuronal era con la estructura de datos que se ha explicado con anterioridad en este trabajo. Esta solución a pesar de ser muy intuitiva y fácil de entender, me ha costado una gran cantidad de tiempo llegar a ella.
+
+
+\subsection{Desarrollo del preprocesado}
+Para poder desarrollar una estructura de datos con que se puedan generar los modelos de las redes neuronales, es necesario previamente reestructurar el \textit{dataset} que usamos a un \textit{dataset} con el que se puedan generar las ventanas necesarias.
+\newline
+
+Para ello es necesario usar algún tipo de librería que facilite este proceso. En este trabajo se ha decidido usar \verb|DataFrame| de \textit{pandas} junto con otras librerías como \textit{numpy} o \textit{tensorflow}, las cuales eran mi primera vez usándolas pero que me he podido adaptar con facilidad.
+\newline
+
+A pesar de ello, me he encontrado con más problemas de los esperados a la hora de usar estas librerías y los cuales me han ralentizado el desarrollo. Además, muchas de las funciones que han sido desarrolladas no estaba seguro de si realizaban la tarea que se les encomendaba y por ello, he dedicado también parte de tiempo a escribir algunos test unitarios para asegúrame que el código era bueno.
+\newline
+
+Muchos de estos problemas tienen su origen a la hora de trabajar con más de 3 dimensiones. A partir de ese punto, es mucho más complejo para el cerebro humano poder tratar estructuras de este estilo y es importante realizar un estudio y un pseudocódigo de lo que se quiere hacer previamente. Esto sin duda alguna trataré de aplicarlo a proyectos futuros: dedicar más tiempo al diseño.
+
+\subsection{Problema de \textit{overfitting}}
+
+El problema del \textit{overfitting} es un problema común cuando se entrenan redes neuronales. Como se explica en la sección \ref{overfitting}, el \textit{overfitting} aparece tras un período de tiempo en el que la red ya ha aprendido y comienza a memorizar los datos, provocando que no se adapte a nuevas situaciones correctamente y pudiendo incluso emperorar los resultados del modelo.
+\newline
+
+Por esa razón, he dedicado parte de mi trabajo al estudio de como evitar el \textit{overfitting}. En un principio se usó la estrategia de trabajar con reguladores, que son ecuaciones con las cuales los pesos de una red se cambian con más lentitud. Pero esta solución, no ha tenido los resultados esperados. Lo que se conseguía con ello, era que el \textit{overfitting} aparecise pero en iteraciones del entrenamiento mucho más avanzadas, por lo que desestimé este el uso de regulizadores.
+\newline
+
+Finalmente, en los modelos actuales se han usado dos técnicas para evitar el \textit{overfitting}. En primer lugar, se ha usado una técnica por la cual se elige una tasa de aprendizaje con la cual el modelo converja a la hora del cálculo del gradiente. Esta técnica se basa en usar varios valores de la tasa de aprendizaje y estudiando como el descenso del gradiente se comporta respecto a ello. En segundo lugar, se ha usado la técnica del uso de \textit{Dropout} (ver sección \ref{dropout}), que básicamente activa y desactiva conexiones entre neuronas en la red de forma aleatoria para que ninguna sea prescindible, es decir, que contenga gran parte de conocimiento respecto a los patrones que se quieren predecir.

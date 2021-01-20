@@ -1,0 +1,26 @@
+\section{Conclusiones}
+
+Con referencia al propio modelo de regresión y a los resultados obtenidos, se podría afirmar que la las siguientes conclusiones:
+1. Las técnicas de aprendizaje de la máquina y específicamente el bosque aleatorio tienen un gran potencial en el campo de la ingeniería civil y el transporte. Si hay una gran cantidad de datos disponibles, los algoritmos de aprendizaje de la máquina pueden ser usados para hacer pronósticos muy precisos.
+
+2. Incluso si se siente un poco contraintuitivo, para el modelo inicial (sólo bosque aleatorio) y el bosque aleatorio sin tendencia; predicción del recuento total utilizando dos modelos separados para usuarios ocasionales y registrados y sumándolos da una precisión muy similar a la de ...prediciéndolo con un solo modelo. Sin embargo, estos dos enfoques no son exactamente los lo mismo. El modelo que prevé por separado los usuarios registrados y los usuarios ocasionales puede utilizarse para entender mejor el comportamiento de cada tipo de usuario. Por otro lado, el modelo único es la mitad de lo que cuesta computacionalmente entrenar y optimizar. La elección entre estas dos opciones deben hacerse dependiendo del objetivo del modelo.
+
+3. Un defecto importante del algoritmo de bosque aleatorio es su incapacidad para captar las tendencias que se muestran en los datos de capacitación si el conjunto de pruebas tiene valores más altos o más bajos para la variable que impulsa la tendencia que los del conjunto de trenes. Esto puede solucionarse desviando la tendencia si la tendencia puede observarse fácilmente o si se conoce previamente su causa, como se muestra en este proyecto. Esto se aplica a las tendencias monótonas crecientes o decrecientes en general, no sólo a las tendencias temporales.
+
+4. Las variables meteorológicas adicionales construidas utilizando las existentes para tener en cuenta las fluctuaciones meteorológicas durante el día no ayudan a mejorar la precisión del modelo
+
+Traducción realizada con la versión gratuita del traductor www.DeepL.com/Translator
+
+Después de evaluar la exactitud del modelo a través de las conclusiones del modelo de regresión, el Se puede abordar la posible utilidad de esos resultados. Ambos conjuntos de conclusiones han sido separadas porque estas conclusiones son en cierto modo consecuencia de las primeras.
+Los métodos de predicción y en particular los alimentados por datos e ingeniados con el aprendizaje de la máquina han demostrado ser una herramienta muy útil en el funcionamiento de un sistema de compartición de bicicletas.
+
+Los modelos descritos en este proyecto requieren un poco de tiempo de ajuste para encontrar los parámetros óptimos, pero una vez que esos parámetros se optimizan, se pueden entrenar y desplegar rápidamente. La tendencia a la regresión lineal, en combinación con el modelo de bosque aleatorio, podría utilizarse para predecir la demanda de bicicletas así como la demanda de plazas de aparcamiento en cada estación (utilizando un modelo diferente para cada una de esas demandas). Esto permitiría al operador del sistema de bicicletas compartidas anticipar esas demandas utilizando un sistema de reposicionamiento dinámico, facilitando una de las principales causas de pérdida de clientes para los sistemas de bicicletas compartidas.
+
+Además, estos modelos también podrían aplicarse a los sistemas de incentivos de equilibrio de bicicletas para diseñar el modelo de incentivos, combinando también las plazas de aparcamiento y las demandas de bicicletas para predecir qué las estaciones necesitarán más bicicletas y cuáles no. Además, las técnicas de aprendizaje de las máquinas podría desarrollarse para medir la eficacia del sistema de incentivos.
+
+Este proyecto es un ejemplo excelente de la aplicación de las metodologías analíticas modernas a las problemas de ingeniería y transporte para generar valor mejorando la experiencia de los usuarios del sistema de transporte.
+
+
+
+Cosas que he aprendido
+Aprendido 

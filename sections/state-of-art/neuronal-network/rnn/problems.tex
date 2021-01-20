@@ -1,0 +1,17 @@
+\subsubsection{Problemas del descenso del gradiente en capas recurrentes "vanilla"}
+como se puede observar en la Figura \ref{fig:simple_rnn}, por cada paso de tiempo, hay que multiplicar la matriz $W_H$ por $H$. La actualización de la capa recurrente viene dado por una función de activación no lineal. Eso provoca que el cálculo del gradiente, que es la derivada del coste respecto a los parámetros que forman la red, incluyendo todos los estados iniciales. Requiere muchas multiplicaciones repetidas de estos pesos y también el uso repetido de las derivada de la función de activación. Y esto puede ser problemático:
+
+\begin{itemize}
+    \item Gradiente explosivo: Ocurre cuando muchos de los valores involucrados en el proceso de multiplicación repetitiva de matrices son mayores a 1 provocando que por cada iteración, el gradiente sea cada vez más grande y por lo tanto la actualización de los parámetros: $w^*$, $b^*$ y $w_H^*$ tienda al infinito. Hay una solución a este problema y es aplicar lo que se conoce como recorte del gradiente que básicamente normaliza los valores para que no sean tan grandes.
+    \item Desvanecimiento del gradiente: Ocurre cuando muchos de los valores involucrados en el proceso de multiplicación repetitiva de matrices son pequeños provocando que por cada iteración, el gradiente sea cada vez más pequeño y por lo tanto la actualización de los parámetros $w^*$, $b^*$ y $w_H^*$ tienda a $0$. Este es uno de los principales problemas al entrenar redes recurrentes. 
+    \newline
+    
+    Se puede ver un ejemplo de este problema si se selecciona un número del 0 a 1 e iterativamente se va multiplicando por sí mismo. Se puede ver que este valor por cada iteración se hace más y más pequeño y eventualmente, se desvanecerá. Esto provoca que el error sea mucho más difícil de propagar más lejos en el pasado y de esa forma se estaría programando una red que aprendiera pasado cercano. Esto no significa que sea un problema, puede haber en alguna ocasión que se necesite de este tipo de arquitecturas. Gráficamente, este desvanecimiento de información se puede ver en la Figura \ref{fig:Backpropagation_through_time}, donde por cada iteración se tiene la información de $x$ actual y parte de información de las anteriores iteraciones.
+    
+    Este error se puede evitar si:
+    \begin{itemize}
+        \item Eligiendo \textit{ReLU} como función de activación: Esto ayuda a que el valor de la derivada de $a()$ no se haga pequeña pero solo cuando $x>0$.
+        \item Inicializando los parámetros de forma no aleatoria: Por ejemplo inicializando la matriz con la matriz identidad.
+        \item Diseñando la arquitectura de la red de forma óptima: Usar una capa más compleja como puede ser LSTM, GRU... que se más efectiva a la hora de rastrear memorias a largo plazo controlando que información pasa y cual es usada para actualizar su estado interno. Específicamente es el concepto de una puerta 
+    \end{itemize}
+\end{itemize}

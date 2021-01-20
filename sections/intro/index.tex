@@ -1,0 +1,59 @@
+\section{Introducción al proyecto}
+\subsection{Introducción}
+\subsubsection{Bikesharing}
+Desde mediados del siglo XX, el vehículo privado ha sido el medio de trasporte imperante en la mayoría de las ciudades europeas, constituyendo ello, probablemente, el principal factor del diseño urbano hoy en día. Es un trasporte rápido y eficaz que ha traído impactos negativos tanto al medio ambiente como a sus habitantes: congestión, contaminación, ruido, gran consumo de energía por persona trasportada, accidentes que suman gran cantidad de años de vida perdidos y discapacidades, contribución al aumento de CO$_2$... Todo esto está favoreciendo que cada vez sea más atractivo el uso de transporte más sostenible. Estos efectos negativos han provocado preocupaciones y promovido el transporte público, bicicleta o, simplemente, caminar. Asimismo, es sabido que el crecimiento económico de un territorio está estrechamente relacionado con las capacidades de movilidad de éste, por lo que, es esencial, que exista un cambio hacia modos de trasporte más sostenibles y eficientes con su uso integrados de forma óptima en el devenir de una ciudad. La bicicleta, actualmente, se encuentra en el foco de interés por parte Organismos Públicos por ser el vehículo más sostenible, barato y fácil de implementar como forma de trasporte en las ciudades.
+\newline
+
+En la sociedad del mundo occidental está surgiendo un cambio de paradigma hacia una economía colaborativa donde se permite el acceso a un bien antes que a su propiedad. Es una economía que está prosperando considerablemente esta última década debido al apogeo de las redes sociales, de las tecnologías en tiempo real, de los nuevos patrones de consumo y de las preocupaciones medioambientales. Los \textit{Product Service Systems} (PSS) son un resultado de este modelo de economía y se basan en que no se ha de poseer un producto para disfrutar de la necesidad que satisface. Los sistemas de movilidad también han evolucionado y ocupado su sitio como PSS y fruto de ello ha sido la aparición de nuevas empresas de \textit{carsharing}, \textit{bikesharing} o \textit{ridesharing}.
+\newline
+
+En la mayoría de los casos, el negocio de \textit{bikesharing} consiste en colocar numerosas estaciones repartidas por grandes ciudades. El uso de estas bicicletas es simple: Un usuario desea ir de un punto a otro punto de la ciudad, con una app instalada en su móvil alquila una bicicleta en alguna de estas estaciones. Una vez verificado por parte de la empresa de bicicletas que este usuario tiene fondos económicos suficientes, se desbloquea una de las bicicletas. El usuario comenzará a pagar por cada minuto de uso, una tasa que depende de la empresa. O bien, la empresa ofrece un modo de pago en forma de tasa mensual o anual. Una vez que el usuario llega al destino, aparcará la bicicleta en alguna plaza disponible para ello y la bloqueará. Las empresas que gestionan y mantienen estos servicios suelen disponer de herramientas para facilitar el uso a los ciudadanos, en forma de servicios de atención al cliente, páginas webs o aplicaciones móviles que informan de la disponibilidad en tiempo real. No disponen de información sobre la predicción de disponibilidad en un futuro cercano, al menos como servicio al ciudadano. En este aspecto, es donde este trabajo de fin de grado toma su sentido y su ser.
+\newline
+
+
+
+\subsubsection{Big Data}
+El avance de las tecnologías de información ha generado nuevos requisitos que las herramientas tradicionales son incapaces de proporcionar. Encontrar respuestas con procesos "tradicionales" con la ingente cantidad de datos que hoy en día se trabajan serían procesos muy lentos y caros. Estos problemas se pueden resolver usando nuevos algoritmos basados en la búsqueda de patrones en los datos usando técnicas de \textit{data mining} y \textit{machine learning}. El dueño de los datos puede hacer un análisis y entender más haya allá de lo que las herramientas convencionales creando nuevas oportunidades de negocio que puede aprovechar.
+\newline
+
+La definición de \textit{Big data} es la de los sistemas de almacenamientos de grandes volúmenes de datos. Uno de los primeros ejemplos del uso de esta tecnología se puede atribuir a \textit{Alan Turing}, cuando en la 2º guerra mundial trabajo en la máquina \textit{Enigma}. Esta máquina consiguió descifrar el código que empleaba el ejército alemán para el cifrado de sus mensajes. Se considera como tal ya que la cantidad de datos para poder cumplir su objetivo fue gigantesca. Desde entonces este campo no ha parado de crecer y su evolución ha estado siempre ligado con la Inteligencia Artificial. Para la detección de patrones comentados anteriormente, hace falta el uso de métodos que la Inteligencia Artificial propone.
+\newline
+
+Pero no ha sido hasta el nacimiento de Internet y en concreto de las redes sociales cuando ha habido una revolución de los datos. Esto ha provocado la generación de datos masivos que, junto al aumento de la capacidad de cómputo, nuevas industrias han surgido alrededor de esta tecnología. Esta cantidad de datos ha facilitado también que nuevos métodos de Aprendizaje Automático se hayan inventado convirtiendo el campo de la Inteligencia Artificial un campo en auge y que está proponiendo gran cantidad de soluciones.
+\newline
+
+\subsubsection{Resumen del trabajo}
+Comentado los conceptos de \textit{bikesharing} y \textit{Big data}, el presente trabajo aúna ambas nociones. Este trabajo práctico pretende demostrar las capacidades que tienen las redes neuronales para realizar tareas de predicción y el estudio de su funcionamiento, comportamiento y optimización.
+\newline
+
+El problema que se quiere resolver es la predicción de uso de bicicletas en las distintas estaciones en una ciudad. Se trata de optimizar el servicio, la satisfacción del cliente y la rentabilidad. Con el análisis de datos se preverá dónde harán falta bicicletas, en estado adecuado para su uso, en un futuro inmediato. Además, muchas de las bicicletas que se alquilan son eléctricas y si estas no son cargadas en la estación, la empresa a de hacerse cargo de ellas llevándolas a un punto de carga y reubicándola en la ciudad. Con la ayuda de un modelo que prediga donde habrá más demanda en el futuro cercano, se podría ubicar las bicicletas optimizando su oferta.
+\newline
+
+Para el desarrollo de este proyecto se ha elegido un problema simple que se resolverá con distintas arquitecturas de redes neuronales y se irá mejorando progresivamente añadiendo más conceptos y complejidad en cada iteración. Se estudiará y se comparará distintas arquitecturas de redes neuronales y sus diferentes patrones. Usaremos arquitecturas como \textit{feed-forward}, recurrentes, convunocionales y LSTM. Se explicará el motivo de uso de cada una de estas redes y los resultados obtenidos.
+\newline
+
+Se trabajará con un \textit{dataset} facilitado por el ayuntamiento de Chicago y la empresa \textit{Wibee}. Este \textit{dataset} contiene información crucial respecto a todos los viajes que se alquilaron durante los años 2014 y 2019. La ciudad de Chicago cuenta con más de 600 estaciones de esta empresa y fueron más de 26 millones de viajes los que se realizaron durante este periodo.
+\newline
+
+\subsection{Metodología y desarrollo}
+El presente trabajo consiste en una parte teórica, sobre el estudio de redes neuronales, centrándose en las recurrentes y por otro lado en una parte práctica. Ambas partes irán confluyendo, complementándose y con ayuda del tutor se irán resolviendo dudas o sugerencias de mejora.
+
+\subsection{Objetivos}
+Los objetivos a lograr son los siguientes:
+\subsubsection{Objetivos generales}
+\begin{itemize}
+    \item Estudio sobre redes neuronales: Entendimiento de las redes neuronales, su funcionamiento y algoritmos usados en ellas.
+    \item Permitir a los responsables de la toma de decisiones del sistema de bicicletas compartidas reequilibrar proactivamente la actuación y asistencia prestada en las estaciones de servicio basadas en predicciones precisas del futuro flujo de bicicletas.
+\end{itemize}
+
+\subsubsection{Objetivos específicos}
+\begin{itemize}
+    \item Redacción del presente documento referenciando todo el proceso llevado a cabo al igual que una explicación de los conceptos aprendidos.
+    \item Uso de librerías de Python 3 de \textit{data mining} como pueden ser: NumPy o Pandas.
+    \item Uso de librerías de Python 3 de \textit{machine learning} como pueden ser: tensorflow o Keras.
+    \item Creación de una red neuronal de tipo \textit{feed-forward} y estudiar su comportamiento con diferentes valores para sus hiperparámetros.
+    \item Creación de una red neuronal recurrente y estudiar su comportamiento con diferentes valores para sus hiperparámetros.
+    \item Creación de una red neuronal convolucional y estudiar su comportamiento con diferentes valores para sus hiperparámetros.
+    \item Creación de una red neuronal LSTM y estudiar su comportamiento con diferentes valores para sus hiperparámetros.
+    \item Comparar resultados de los distintos modelos e intentar justificar su funcionamiento.
+\end{itemize}

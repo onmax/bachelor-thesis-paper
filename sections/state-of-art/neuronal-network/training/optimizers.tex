@@ -1,0 +1,15 @@
+\subsubsection{Optimizadores}
+Los optimizadores son algoritmos que se usan para calcular una tasa de aprendizaje de forma dinámica, no es un valor estático, sino que varía en función del estado del entrenamiento. Según vaya ejecutando el entrenamiento, puede que la tasa de aprendizaje incremente o puede que decremente.
+\newline
+
+Si usamos la metáfora de la persona en una montaña, el número de pasos que va a bajar esa persona estará condicionada a distintos criterios. Algunos de esos criterios pueden ser: Cuanto se ha bajado últimamente o como de rápido se ha bajado. 
+\newline
+
+Es decir, la tasa de aprendizaje que se use se irá adaptando en función a distintos criterios. Uno de esos criterios es como de rápido el aprendizaje está yendo respecto a la pérdida de nuestro modelo entre otras.
+\newline
+
+% The Optimizer - Stochastic Gradient Descent¶ - https://www.kaggle.com/ryanholbrook/stochastic-gradient-descent
+
+
+Dependiendo del optimizador escogido, usarán unas u otros criterios para ir modificando este valor.  Los optimizadores más usados son: Adam\cite{kingma}, Adadelta\cite{zeiler}, Adagra\cite{duchi} o RMSProp\cite{duchi}.
+\newline

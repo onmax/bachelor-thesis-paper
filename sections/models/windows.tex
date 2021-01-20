@@ -1,0 +1,9 @@
+\subsection{Ventanas}
+
+Como se ha explicado en la sección \ref{window-generator}, se pueden generar predicciones en función de los argumentos de entrada. Es decir, se puede crear un modelo que dado una cantidad $X$ de intervalos, pueda predecir una cantidad $Y$ de intervalos. Se quería comparar diferentes ajustes que se pueden realizar a las ventanas y ver los resultados obtenidos. En definitiva, se ha creado un modelo distinto para cada uno de los tamaños de ventana.
+\newline
+
+De aquí en adelante, se hará referencia a las configuración de ventana con tuplas, donde el primer término es el tamaño de intervalos de entrada y el segundo elemento el tamaño de intervalos que el modelo predice. Por ejemplo dada la siguiente tupla 12-5, quiere decir que el modelo desarrollado usa una ventana con 12 intervalos de entrada y 5 intervalos de salida.
+\newline
+
+En total se han usado 15 configuraciones de ventana distintas: 3-1, 5-1, 8-1, 8-3, 8-5, 12-1, 12-3, 12-5, 24-1, 24-3, 24-5, 36-8, 36-12, 48-12, 48-24. Como se han desarrollado 4 arquitecturas de neuronales diferentes, al final se han desarrollado 60 modelos más el modelo básico. 

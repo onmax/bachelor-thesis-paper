@@ -1,0 +1,29 @@
+\subsubsection{\textit{Development of a station-level demand prediction and visualization tool to support bike-sharing systems’ operators}}
+
+En este trabajo \cite{BOUFIDIS202051}, se crea un proceso de predicción de la demanda de bicicletas y una herramienta de visualización de estas para la ciudad de Thessaloniki, Grecia. Se usan diferentes modelos en los que se encuentran \textit{XGBoost}, \textit{Random Forest} y redes neuronales entre otros. Los datos de los que dispone son lo siguientes:
+\begin{itemize}
+    \item Información geográfica: Coordenadas de la estación, usando por lo tanto dos atributos: latitud y longitud.
+    \item Información temporal expresada en: Hora, día de la semana, mes y año. Las tres primeras, son mapeadas a una tupla ($seno$ y $coseno$).
+    \item Información sobre el calendario laboral: Usando dos variables: una para identificar si es día laboral o no y otra para identificar si es domingo o no.
+    \item Información meteorológica: Usando tanto la información meteorológica del momento como el pronóstico a corto plazo. Este tipo de información incluye: temperatura media, velocidad del viento, cantidad de nubes y precipitación.
+\end{itemize}
+
+Para la red neuronal, se ha usado una red densa \textit{forward-pass} con 2 capas ocultas de 20 y 8 neuronas respectivamente y una capa de salida de una sola neurona. Para las métricas han usado: MAE, MSE, RMSE y RMSLE. El \textit{dataset} comprende los años 2014 al 2018 y se desechan los datos comprendidos entre las 00:00 y las 6:00 justificando que la mayoría de estaciones no están automatizadas y operan solo durante el resto del tiempo. Sus resultados son los siguientes:
+
+
+ 
+\begin{table}[H]
+\centering
+\begin{tabular}{rr}
+\toprule
+ Métrica & Valor \\
+\midrule
+ MAE &  0.89 \\
+ MSE &  2.66 \\
+ RMSE &  0.64 \\
+ RMSLE &  0.49 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Este proyecto es una muestra de un buen caso de uso para una red neuronal, usando las predicciones para mostrarlos en una herramienta web y de esa forma que los usuarios y la empresa puedan tomar decisiones. En cuanto a lo que es la red neuronal considero que se podría haber hecho mucho mejor porque la red usada es muy simple y los hyperparámetros usados son los por defecto de \textit{sci-kit learn} y los resultados son regulares y mejorables.

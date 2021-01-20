@@ -1,0 +1,91 @@
+\subsection{Métricas usadas}
+En total se han usado 6 métricas distintas para medir el rendimiento de los modelos. Además, uno de esas métricas, la pérdida de Huber (ver sección \ref{huber_loss}) se ha usado además como función de coste.
+
+\subsubsection{Pérdida de Huber}
+
+Como se explica en la Sección \ref{huber_loss}, está función de pérdida no prioriza los datos atípicos sino que trata a todos los datos de forma similar. Esto es muy útil, para el problema que queremos resolver.
+
+En el dataset que estamos usando, un dato que no siga el patrón (\textit{outlier}) no significa que sea un error que se deba de tener en cuenta como puede ocurrir en otros tipos de problemas. Por ejemplo, en una estación de bicicletas justo en frente de una facultad recibe una gran demanda un jueves a las 17 mientras que el resto de jueves no ha tenido tanta demanda para dicho intervalo. Esto se debe a un acontecimiento único, por ejemplo un examen en dicha facultad para ese día. Este dato, al ser un dato válido y no un error como tal, la red no aprenderá de inmediato que los jueves habrá dicha demanda sino que harán faltas múltiples días en los que se repita para que la red comience a ajustarse a dichos datos y por eso la pérdida de Huber se adapta bien a este tipo de problema. La ecuación de la pérdida de Huber es la siguiente:
+
+\begin{equation}
+\centering
+    \begin{split}
+    \text{Huber} = \left\{ 
+        \begin{array}{cl} 
+            MSE & \text{si }|\hat{y}-y| \le \delta, \\
+            MAE & \text{e.o.c.}
+        \end{array}\right.
+    \end{split}
+\end{equation}
+
+Para la implementación del código se ha usado la propia implementación de la librería de \textit{Keras}:
+
+\begin{minted}{python}
+from tf.losses import Huber
+\end{minted}
+
+\subsubsection{MAE}
+
+El error absoluto medio (MAE) es una de las métricas más básicas y rápidas de calcular. Se calcula usando la media entre las diferencias entre los valores reales y los valores predichos como se puede ver a continuación:
+
+\begin{equation}
+\centering
+    \begin{split}
+        \text{MAE} = \frac{1}{n} \sum_{i=1}^n |y_i - \hat{y_i}|
+    \end{split}
+\end{equation}
+
+Para hacer uso de esta ecuación en \textit{Keras}, se puede importar de la siguiente forma:
+
+
+\begin{minted}{python}
+from tf.metrics import MeanAbsoluteError
+\end{minted}
+
+\subsubsection{MSE y RMSE}
+
+Estas dos métricas indican básicamente los mismo. El MSE es un valor que se obtiene al calcular la media entre todos los valores obtenidos al aplicar el cuadrado a la diferencia entre el valor real y el valor predicho como se puede ver a continuación:
+
+\begin{equation}
+\centering
+    \begin{split}
+        \text{MSE} = \frac{1}{n} \sum_{i=1}^n (\hat{y_i} - y_i)^2
+    \end{split}
+\end{equation}
+
+Por otro lado, RMSE es la raíz cuadrada del RMSE como se puede observar a continuación:
+
+\begin{equation}
+\centering
+    \begin{split}
+        \text{RMSE} = \sqrt{MSE}
+    \end{split}
+\end{equation}
+
+Para poder hacer cálculo de MSE y RMSE se pueden importar desde \textit{tensorflow}.
+
+\begin{minted}{python}
+from tf.losses import MeanSquaredError
+from tf.metrics import RootMeanSquaredError
+\end{minted}
+
+\subsubsection{MSLE y RMSLE}
+
+Esta métrica se usa porque hay multitud de proyectos, entre ellos, la competición de \textit{Kaggle} (ver sección \ref{kaggle_competition}) que usan estas métricas y de esa forma poder comparar los resultados. La explicación del MSLE se puede ver en la sección \ref{MSLE_loss}. RMSLE es igual que MSLE pero aplicándole una raíz cuadrada:
+
+\begin{equation}
+\centering
+    \begin{split}
+        \text{MSLE} &= \frac{1}{n} \sum_{i=1}^n \left(\log{\left(\frac{y_i + 1}{\hat{y_i} + 1}\right)}\right)^2 \\
+        \text{RMSLE} &= \sqrt{MSLE}
+    \end{split}
+\end{equation}
+
+Para poder hacer cálculo de MSLE se puede importar la función de \textit{Keras}. Esta función además nos sirve para poder definir la función RMSLE como se muestra a continuación:
+
+\begin{minted}{python}
+from tf.keras.losses import MeanSquaredLogarithmicError
+def RootMeanSquaredLogarithmicError(y_true, y_pred):
+    msle = MeanSquaredLogarithmicError(y_true, y_pred)
+    return tf.keras.backend.sqrt(msle)
+\end{minted}
