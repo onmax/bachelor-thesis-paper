@@ -1,9 +1,0 @@
-\subsubsection{Tasa de aprendizaje}\label{learningrate}
-Seleccionar una tasa de aprendizaje adecuada para el modelo es un paso fundamental a la hora de diseñar una red neuronal y una mínima modificación de este valor puede tener un gran impacto en el modelo final. 
-\newline
-
-Si se selecciona una tasa de aprendizaje muy pequeña, significa que no se fía del resultado del gradiente y por lo tanto en cada iteración el cambio que sufrirá la matriz $W$ será pequeño y el algoritmo se podrá atascar en alguno de los puntos locales mínimos porque el cambio entre la $W$ antigua y la nueva $W$ no está siendo tan drástico como debería para no acabar en estos mínimos locales. Por el contrario, si se selecciona una tasa de aprendizaje muy grande, el algoritmo se sobrepasará por completo y divergirá.
-\newline
-
-Por lo tanto, el valor para la tasa de aprendizaje no debe de ser ni muy pequeño para que el algoritmo no se atasque ni muy grande para que el modelo pueda convergir. Una forma de elegir una buena tasa de aprendizaje es probar varios valores y estudiar qué valor funciona mejor. Este algoritmo es conocido como SGD \cite{kiefer}, pero otra opción es usar algún optimizador.
-\newline
