@@ -1,0 +1,19 @@
+\subsubsection{Problems of descending gradient in recurrent "vanilla" layers}
+As can be seen in figure \ref{fig:simple_rnn}, for each time step, the $W_H$ matrix has to be multiplied by $H$. The updating of the recurrent layer is given by a non-linear activation function. This causes the calculation of the gradient, which is the derivative of the cost with respect to the parameters that form the network, including all the initial states. It requires many repeated multiplications of these weights and also the repeated use of the derivatives of the activation function. And this can be problematic:
+
+
+\begin{itemize}
+    \item Explosive gradient: It occurs when many of the values involved in the process of repetitive multiplication of matrices are greater than 1 causing that for each iteration, the gradient is larger and larger and therefore the updating of the parameters:  $w^*$, $b^*$ and $w_H^*$ tends to infinity. There is a solution to this problem and it is to apply what is known as gradient trimming that basically normalises the values so that they are not so big.
+    \item Fading of the gradient: It occurs when many of the values involved in the process of repetitive multiplication of matrices are small causing that for each iteration, the gradient becomes smaller and smaller and therefore the update of the parameters $w^*$, $b^*$ y $w_H^*$ tend to $0$. This is one of the main problems when training recurrent networks.
+    \newline
+    
+    
+    An example of this problem can be seen by selecting a number from 0 to 1 and iteratively multiplying itself. You can see that this value for each iteration becomes smaller and smaller and eventually, it will fade away. This causes the error to be much more difficult to propagate further into the past and so a network would be programmed to learn the near past. This does not mean that it is a problem, there may be times when this type of architecture is needed. Graphically, this fading of information can be seen in figure \ref{fig:Backpropagation_through_time}, where for each iteration you have the current $x$ information and some information from the previous iterations.
+    
+    This error can be avoided if:
+    \begin{itemize}
+        \item By choosing \acrshort{relu} as the activation function: This helps to ensure that the derivative value of $a()$ does not become small but only when $x>0$.
+        \item Initialising the parameters in a non-random method: For example initialising the matrix with the identity matrix.
+        \item Designing the network architecture in an optimal way: Using a more complex layer such as \acrshort{lstm}, GRU... that is more effective in tracking long term memory by controlling what information passes and which is used to update its internal state. Specifically, it is the concept of a door.
+    \end{itemize}
+\end{itemize}

@@ -1,0 +1,46 @@
+\subsection{Neural networks}
+
+
+Below are the results of all the models with the different windows that have been trained to study how they behave. All the models have the same hyperparameters that have been explained in section \ref{models}. The columns represent the models used, which all have the metrics obtained for both the validation and the testing datasets. The rows are divided both by the metrics used and by the window size for each model. In total $60$ models have been developed ($15$ different window sizes for $4$ neural network models):
+
+\input{sections/results/table}
+
+Graphs have also been developed to make it easier to visualise the metrics using the testing dataset. In all the graphs there is a horizontal line representing the metric obtained by the baseline model:
+
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=15cm]{images/solution/metrics/HUBER.png}
+    \caption{Results using Huber's loss}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=15cm]{images/solution/metrics/MAE.png}
+    \caption{Metrics using \acrshort{mae}}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=15cm]{images/solution/metrics/MSE.png}
+    \caption{Metrics using \acrshort{mse}}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=15cm]{images/solution/metrics/MSLE.png}
+    \caption{Metrics using \acrshort{msle}}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=15cm]{images/solution/metrics/RMSE.png}
+    \caption{Metrics using \acrshort{rmse}}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+     \includegraphics[width=15cm]{images/solution/metrics/RMSLE.png}
+    \caption{Metrics using \acrshort{rmsle}}
+\end{figure}

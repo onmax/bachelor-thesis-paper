@@ -1,0 +1,29 @@
+\subsection{Training, validation and testing of neural networks}
+
+
+Once the models have been created, a function has been coded to automate the process of training, validation and testing of each of the models, in addition to obtaining the metrics that will be needed to study and compare the different models. The code can be read in Appendix \ref{app:compile_and_fit}.
+\newline
+
+The code is divided into three distinct functions:
+\begin{itemize}
+    \item The \small{\verb|compile_and_fit()|} \normalsize  function, given a network architecture model (dense, \acrshort{rnn}, \acrshort{lstm} or \acrshort{ar}), will compile such a model using Huber's loss as a cost function and Adam's optimizer for gradient descent. The learning rate used has been a value between $0.001$ and $0.0001$ depending on the model. To obtain this value, it has been made use of the technique explained in section \ref{overfitting} in which the learning rate is calculated in an iterative way and studying which values make the descent of the gradient converge in a faster and constant way.
+    \newline
+    
+    The optimiser used was Adam's optimiser. This decision has been made with the same process as the decision of how many layers and how many neurons to use in the network, on a trial and error basis. Surely, there is a combination that obtains better results, but from the experience of the results obtained with the different comparisons, the models usually do not improve excessively by this type of decisions, it is much more important other hyper parameters like the activation function to use, an optimal learning rate or the use of Dropout between layers.
+    \newline
+    
+    Another technique to avoid the appearance of overfitting is the use of a function called \small{\verb|EarlyStopping|} \normalsize  that will stop the learning process if it considers that the model is starting to memorise and not learn or if after a \small{\verb|patience|} \normalsize  equal to $10$ epochs the model has not learned considerably from the past. This is done from \small{\verb|callbacks|} \normalsize , which are functions that are executed after executing an epoch. Another \small{\verb|callback|} \normalsize  used has been a function that in real time draws the graphs of how the learning process is going with the metrics with the training dataset as the validation dataset.
+    \newline
+    
+    The cost function used will be explained in the next section along with the metrics used to measure model performance.
+    \newline
+    
+    
+    \item The \small{\verb|compile_and_fit()|} \normalsize  function only works with one model and one specific window size. On the other hand, there is the \small{\verb|model_generator()|} \normalsize ) function that, given a model, is in charge of creating all the windows with the different sizes and training the model for each of the windows. As explained previously, in total 15 different window sizes have been used, so a call to the \small{\verb|model_generator()|} \normalsize  function causes 15 different models to be trained and therefore the time of this process usually takes between 2 and 5 hours depending on the model being trained.
+    \newline
+    
+    \item For each model trained and in order not to waste the results, the function \newline \small{\verb|get_metrics()|} \normalsize  is in charge of computing this data and saving it in a CSV that will be used by other functions later on to display the results and draw different graphs.
+
+\end{itemize}
+
+

@@ -1,0 +1,47 @@
+\section{Variables matemáticas}
+\begin{tabular}{@{}ll@{}} 
+\textbf{Símbolo} & \textbf{Descripción} \\
+$L_i$ & Capa $i$ de la red neuronal\\
+$L_{i,j}$ & Neurona $i$ de la capa $i$ de la red neuronal\\
+\\
+$x$ & Vector de entrada del modelo \\
+$x'$ & $[[1] \oplus x]^T$ \\
+\\
+$b$ & Sesgo de una neurona \\
+$b^{L_{i, j}}$ & Sesgo de la neurona $j$ en la capa $i$ \\
+\\\\
+$w$ & Vector de pesos \\
+$w*$ & Nuevo vector de pesos tras el calculo con $\nabla f$\\
+$w^{L_{i, j}}$ & Vector de pesos para la neurona $j$ de la capa $i$ \\
+$W^{L_{i}}$ & Matriz de pesos de la capa $i$ formada también por los valores $b$ \\
+$W^{L_{i}}$ & Matriz de pesos de la capa $i$ formada también por los valores $b$ \\
+$W*$ & Nueva matriz de pesos tras el calculo con $\nabla f$\\
+\\
+$z$ & Vector escalar entre $w$ e $y$ o $w$ y $x$\\
+$z^{L_i}$ & Vector escalar entre $w^{L_i}$ e $y{L_{i-1}}$ o $w^{L_1}$ y $x$\\
+\\
+$a()$ & Función de activación\\
+$a()^{L_i}$ & Función de activación para la capa $i$\\
+$a'()$ & Derivada de la función de activación\\
+$a'()^{L_i}$ & Derivada de la función de activación para la capa $i$\\
+\\
+$y$ & Vector de salida del modelo \\
+$y^{L_i}$ & Vector de salida para la capa $L_i$ \\
+$\hat{y}$ & Vector real \\
+$\hat{y_i}$ & Vector real que se encuentra en la posición $i$ del \textit{dataset} \\
+\\
+$c()$ & Función de coste \\
+$c'()$ & Derivada de la función de coste \\
+\\
+$\nabla f$ & Vector gradiente \\
+$\nabla f_b$ & Valor del vector gradiente para $b$\\
+$\nabla f_w$ & Subvector del vector gradiente para $w$\\
+\\
+$\partial$ & Derivada parcial\\
+$\frac{\partial a}{\partial b}$ & Derivada parcial de $a$ respecto a $b$ \\
+\\
+$\eta$ & \acrlong{lr} \\
+\\
+
+$\oplus$ & Concatenación de vectores
+\end{tabular}

@@ -1,0 +1,20 @@
+\subsection{Preprocesado de datos}
+
+Como bien se ha dicho en la anterior sección, se ha usado un \textit{dataset} público ofrecido por la compañía \textit{Divvy} \cite{divvy}. Este \textit{dataset} contiene el historial con todos los viajes registrados desde el 2004 al 2019 en la ciudad de Chicago. Estos datos se ofrecen divididos por partes: o bien por cuatrimestres o bien por meses. El \textit{dataset} final contiene $26.328.986$ de viajes en toda la red con un total de $633$ estaciones. Por cada viaje, se tienen 12 etiquetas asociados a ellos. En el Apéndice \ref{app:original_dataset} se puede ver una muestra de los datos recogidos en él.
+\newline
+
+Para el desarrollo de este proyecto, se han creado cuatro módulos distintos. Cada una de estos módulos tendrá como resultado una estructura de datos guardada en \acrshort{csv} a excepción del módulo del generado de ventanas que contendrán información que será útil para el siguiente módulo. El principal motivo de que los dos primeros módulos tengan como resultado la creación de un fichero es para ahorrar tiempo de cómputo innecesario cada vez que se quiera entrenar un modelo. Como para entrenar a los modelos es necesario multitud de pruebas con diferentes configuraciones, es un proceso que se hubiera repetido continuamente y cuyo resultado siempre hubiese sido el mismo. Por otro lado, el generador de ventanas, módulo que se explicará más adelante, al ser un módulo que es instantáneo y que además genera distintos resultados en función del modelo que se quiera desarrollar no guarda el resultado en algún archivo.
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=15cm]{images/solution/modules/modules.png}
+    \caption{Estructura del proyecto divida por módulos.}
+\end{figure}
+
+Durante las siguientes secciones se explicarán cada uno de estos módulos en detalle incluyendo diagramas y código.
+
+
+\input{sections/development/modules/feature-selection}
+\input{sections/development/modules/inputs-ouputs}
+\input{sections/development/modules/intervals}

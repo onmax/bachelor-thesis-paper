@@ -1,0 +1,118 @@
+\documentclass[a4paper, 12pt]{article} % La fuente debe ser de 12pt
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{hyperref}
+\usepackage[left=3cm, right=3cm, top=3.5cm, bottom=3.5cm]{geometry} % Márgenes recomendados
+\usepackage{times} % La fuente debe ser Times New Romans
+\usepackage[english]{babel}
+\usepackage[english]{translator}
+\usepackage[style=ieee, backend=biber]{biblatex} % Bibliografía en formato IEEE
+\usepackage{sectsty}
+\usepackage{cover-page}
+\usepackage{amsmath}
+\usepackage{float}
+\usepackage{minted}
+\usepackage[onelanguage]{algorithm2e} %for psuedo code
+\usepackage{booktabs}
+\usepackage{threeparttable}
+\usepackage{rotating}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{tablefootnote}
+\usepackage{csquotes}
+\usepackage{graphicx}
+\usepackage{subfig}
+\usepackage{cprotect}
+\usepackage{subfigure}
+\usepackage{pgfplots}
+
+
+\usepackage[acronym]{glossaries}
+\makeglossaries
+\input{acronyms}
+
+
+
+
+\selectlanguage{english} 
+
+
+
+
+
+\DeclareMathOperator*{\argmin}{argmin}
+
+\sectionfont{\MakeUppercase}
+
+\addbibresource{references/ai.bib}
+\addbibresource{references/nn.bib}
+\addbibresource{references/python-libs.bib}
+\addbibresource{references/solution.bib}
+\addbibresource{references/other-projects.bib}
+
+\Director{Antonio García Dopico}
+%\Lugar{Bilbao} % Por omisión: Madrid
+%\Grado{Graduado en Matemáticas e Informática} % Por omisión: Graduado en Ingeniería Informática
+%\Trabajo{TRABAJO FIN DE MÁSTER} % Por omisión: TRABAJO FIN DE GRADO
+\Trabajo{Bachelor's thesis}
+\author{Máximo García Martínez}
+\date{January, 2021}
+\title{Bike Sharing Demand Forecasting using Recurrent Neural Networks}
+
+\begin{document}
+
+\pagenumbering{roman}
+\maketitle
+\null
+\newpage
+
+%% Índice de contenidos
+\tableofcontents
+\newpage
+
+\listoffigures
+\newpage
+\listoftables
+
+\newpage
+
+
+\cleardoublepage
+
+
+\input{sections/abstract/index}
+\newpage
+
+\pagenumbering{arabic} % Iniciamos la numeración árabe en la primera sección
+
+\newpage
+\input{sections/intro/index}
+\newpage
+\input{sections/state-of-art/state-of-art}
+\newpage
+\input{sections/development/index}
+\newpage
+\input{sections/models/index}
+\newpage
+\input{sections/results/index}
+\newpage
+\input{sections/problems/index}
+\newpage
+\input{sections/conclusions/index}
+\newpage
+\input{sections/future-work/index}
+\newpage
+\printbibliography[heading=bibnumbered] % Última sección, numerada, para la bibliografía
+\newpage
+
+\input{sections/appendix/index}
+% \newpage
+\clearpage
+\printglossary[type=\acronymtype]
+% \printglossary
+
+\newpage
+
+
+\end{document}

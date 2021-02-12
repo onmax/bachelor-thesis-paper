@@ -1,0 +1,30 @@
+\subsubsection{Development of a station-level demand prediction and visualisation tool to support bike-sharing systems’ operators}
+
+In this work \cite{BOUFIDIS202051}, a process for predicting the demand for bicycles and a tool for visualising it is created for the city of Thessaloniki, Greece. Different models are used, including \textit{XGBoost}, \textit{Random Forest} and \acrlong{nn}, among others. The data available is as follows:
+
+\begin{itemize}
+    \item Geographical information: Station coordinates, therefore using two attributes: latitude and longitude.
+    \item Temporary information expressed in: Time, day of the week, month, and year. The first three are mapped to a tuple ($sine$ and $cosine$).
+    \item Work calendar information: Using two variables: one to identify whether it is a working day or not and another to identify whether it is a Sunday or not.
+    \item Weather information: Using both current weather information and short-term forecasts. This type of information includes average temperature, wind speed, amount of clouds and precipitation.
+\end{itemize}
+
+For the neural network, a dense forward-pass network with 2 hidden layers of 20 and 8 neurons respectively and a single neuron output layer has been used. For the metrics they have used: \acrshort{mae}, \acrshort{mse}, \acrshort{rmse} and \acrshort{rmsle}. The dataset covers the years 2014 to 2018 and data between 00:00 and 6:00 are discarded, justifying that most stations are not automated and operate only during the rest of the time. The results are as follows:
+
+ 
+\begin{table}[H]
+\centering
+\begin{tabular}{rr}
+\toprule
+ Métrica & Valor \\
+\midrule
+ \acrshort{mae} &  0.89 \\
+ \acrshort{mse} &  2.66 \\
+ \acrshort{rmse} &  0.64 \\
+ \acrshort{rmsle} &  0.49 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+This project is a sample of a good use case for a neural network, using the predictions to display them in a web tool so that users and the company can make decisions. As far as the neural network is concerned, I think it could have been done much better because the network used is very simple and the hyperparameters used are the default ones of sci-kit learn and the results are regular and can be improved.

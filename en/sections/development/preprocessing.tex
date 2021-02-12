@@ -1,0 +1,20 @@
+\subsection{Data pre-processing}
+
+As mentioned in the previous section, a public dataset offered by the company \textit{Divvy} has been used \cite{divvy}. This dataset contains the history of all the journeys recorded from 2004 to 2019 in the city of Chicago. This data is offered divided into parts: either by quarters or by months. The final dataset contains $26,328,986$ trips in the entire network with a total of $633$ stations. For each trip, there are $12$ labels associated with them. A sample of the data collected in the dataset can be seen in Appendix \ref{app:original_dataset}.
+\newline
+
+
+For the development of this project, four different modules have been created. Each of these modules will result in a data structure stored in \acrshort{csv} except for the window generator module which will contain information that will be useful for the next module. The main reason why the first two modules result in the creation of a file is to save unnecessary computation time each time a model is to be trained. As training the models requires a multitude of tests with different configurations, it is a process that would have been repeated continuously and whose result would always have been the same. On the other hand, the window generator, a module that will be explained later, being a module that is instantaneous and that also generates different results depending on the model to be developed, does not save the result in any file.
+\newline
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=15cm]{images/solution/modules/modules.png}
+    \caption{Project structure divided by modules.}
+\end{figure}
+
+During the following sections each of these modules will be explained in detail including diagrams and code.
+
+\input{sections/development/modules/feature-selection}
+\input{sections/development/modules/inputs-ouputs}
+\input{sections/development/modules/intervals}

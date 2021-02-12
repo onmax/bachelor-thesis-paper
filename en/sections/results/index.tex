@@ -1,0 +1,34 @@
+\section{Results}\label{results}
+
+This section will show all the results obtained with the different models. In total 4 models have been developed (1 baseline model and 3 neural networks). These models have been iterated from a baseline model to more complex models. This improvement process is reflected in the metrics obtained.
+
+\input{sections/results/metrics}
+
+
+\subsection{Results of the baseline model}
+
+The baseline model, as explained in section \ref{baseline_model}, returns the number of trips that started for an interval the previous week for which you want to predict the data. Calculating all the metrics, the results of this model are as follows:
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{l|rr}
+    \toprule
+    Metrics &      val &      test \\
+    \midrule
+    
+    \acrshort{msle} &  0.221549 &  0.239364 \\
+    \acrshort{mse} &  3.383871 &  3.699979 \\
+    \acrshort{mae} &  0.603720 &  0.647458 \\
+    HUBER &  0.462739 &  0.499985 \\
+    \acrshort{rmse} &  1.913998 &  1.914635 \\
+    \acrshort{rmsle} &  0.470690 &  0.489248 \\
+    \bottomrule
+    \end{tabular}
+    \caption{Metrics obtained from the baseline model.}
+\end{table}
+
+These values are the ones that will be used as a reference to be able to compare the models that are developed and check that an improvement is being achieved.
+
+
+
+\input{sections/results/nn}

@@ -1,0 +1,24 @@
+\section{Future work}\label{future_work}
+
+Much of this project has been in the theoretical study of the concept of neural networks while the practical application of what has been learned has been the other part of the time dedicated. In this practical part, mainly, time has been invested in learning about the libraries used in the industry such as Tensorflow and Pandas, as well as in understanding the problem and studying different models and their behaviour. With this work it has therefore been demonstrated that the best model that has worked has been the \acrshort{ar} one.
+\newline
+
+
+As part of the future work, it is proposed to improve this model to minimise all possible metrics and propose a model that obtains similar or better results than the current state of the art. This could be done by further studying both the network parameters and the learning rate, the optimiser or the error. But, adding more information to this could be more useful, since the more data, the more accurate the model will be. For example, you could use variables such as whether it is a holiday or the weather conditions. And this is one of the main differences between the data set in this project and others. The model had only three variables about the temporal information: \small{\verb|hour|}\normalsize, \small{\verb|day_of_month|}\normalsize and \small{\verb|month|}\normalsize. Therefore, there is no doubt that by adding these variables that provide information about the patterns of bicycle rentals, the model would improve considerably.
+\newline
+
+Another aspect of this project to be improved would be the exploitation of the results in some kind of tool useful to the company or to the users. The trained models have simply been used to compute the metrics and then discarded as there were no plans to use them in production. Conversely, if there had been a project using the models, they could have been kept on file and used in different tools. For example, a web application that tells the user the forecast of bicycles available for a certain time or software that allows logistics managers to relocate bicycles more efficiently. These and other applications could use as a main module some neural network model explained in this project.
+\newline
+
+
+On the other hand, more variables could be used containing important information such as the work calendar or variables related to meteorology, which influence the behaviour patterns of the bicycle network.
+\newline
+
+For example, on a non-working Monday, the number of bicycles rented in a park will be greater than any other Monday in another week. Or, if one day the weather conditions are not favourable for cycling, the number of bicycles rented will be considerably reduced. These types of variables are some examples that could be added to the dataset to improve the accuracy of the model but for lack of time and for simplicity they have not been added. In addition, the results obtained have been considered to be quite good in themselves and therefore it has not been necessary to invest time in this section although it would be a good study how these models could be improved with such changes.
+\newline
+
+
+Finally, it would be interesting to study if it is feasible to use this project but using other datasets and thus prove its portability.
+\newline
+
+

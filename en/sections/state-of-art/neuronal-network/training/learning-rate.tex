@@ -1,0 +1,11 @@
+\subsubsection{Learning rate}\label{learningrate}
+Selecting an appropriate learning rate for the model is a fundamental step in designing a neural network and a minimum modification of this value can have a great impact on the final model.
+\newline
+
+
+If a very small learning rate is selected, it means that it does not trust the result of the gradient and therefore in each iteration the change that the $W$ matrix will suffer will be small and the algorithm will be able to get stuck in some of the local minima because the change between the old $W$ and the new $W$ is not being so drastic as it should not end in these local minima. On the contrary, if a very large learning rate is selected, the algorithm will be completely exceeded and will diverge.
+\newline
+
+
+Therefore, the value for the learning rate should be neither too small so that the algorithm does not get stuck nor too large so that the model can converge. One way to choose a good learning rate is to test several values and study which value works best. This algorithm is known as \acrfull{sgd} \cite{kiefer}, but another option is to use a optimiser.
+\newline

@@ -1,0 +1,69 @@
+\section{Introduction to the project}
+\subsection{Introduction}
+\subsubsection{Bikesharing}
+
+
+Since the middle of the 20\textsuperscript{th} century, the private car has been the prevailing means of transport in most European cities, probably constituting the main factor in urban design today. It is a fast and efficient transport that has brought negative impacts to both the environment and its inhabitants: congestion, pollution, noise, high energy consumption per person transported, accidents that add up to many years of life lost and disabilities, contribution to the increase of \acrshort{co2}.... All this is making the use of more sustainable transport increasingly attractive. These negative effects have raised concerns and promoted public transport, cycling or simply walking. It is also known that the economic growth of a territory is closely related to its mobility capabilities \cite{europe}, so it is essential that there is a shift towards more sustainable and efficient modes of transport with its use optimally integrated into the evolution of a city. The bicycle is currently in the focus of interest by public agencies for being the most sustainable, cheapest and easiest vehicle to implement as a form of transport in cities.
+\newline
+
+
+A paradigm shift is emerging in Western world society towards a collaborative economy where access to a good is allowed rather than ownership. It is an economy that is thriving considerably this past decade due to the rise of social networks, real-time technologies, new consumption patterns and environmental concerns. The \acrfull{pss} is a result of this model of economy and is based on the fact that you do not have to own a product to enjoy the need it satisfies. Mobility systems have also evolved and taken their place as a \acrshort{pss} and as a result of this, new car sharing, bike sharing or ridesharing companies have appeared.
+\newline
+
+In most cases, the bike sharing business consists of setting up numerous stations throughout large cities. The use of these bikes is simple: A user wants to go from one point to another point of the city, with an app installed on his cell phone rents a bike at one of these stations. Once verified by the bicycle company that the user has sufficient funds, one of the bicycles is unlocked. The user will start paying for each minute of use, a fee that depends on the company. Alternately, the company offers a payment method in the form of a monthly or annual fee. Once the user arrives at the destination, he or she will park the bicycle in some available bicycle parking space and lock it. The companies that manage and maintain these services usually have tools to facilitate the use by citizens, in the form of customer services, websites or mobile applications that report availability in real time. Although, they do not have information on predicting availability in the near future, at least as a service to citizens. In this aspect, is where this thesis takes its sense and its being.
+\newline
+
+
+
+\subsubsection{Big Data}
+
+The advance of information technologies has generated new requirements that traditional tools are unable to provide. Finding answers with "traditional" processes with the huge amount of data nowadays would be very slow and expensive. These problems can be solved using new algorithms based on finding patterns in the data using data mining and machine learning techniques. The owner of the data can analyse and understand more beyond what conventional tools create new business opportunities that he can take advantage of.
+\newline
+
+Big data is defined as systems for storing large volumes of data. One of the first examples of the use of this technology can be attributed to Alan Turing, when he worked on the Enigma machine during World War II \cite{alan_turing}. This machine managed to decipher the code used by the German army to encrypt its messages. It is considered as such since the amount of data to be able to fulfil its objective was gigantic. Since then, this field has not stopped growing and its evolution has always been linked to Artificial Intelligence. For the detection of the aforementioned patterns, it is necessary to use methods that Artificial Intelligence proposes.
+\newline
+
+But it has not been until the birth of the Internet and specifically of social networks that there has been a data revolution. This has led to the generation of massive data that, together with the increase in computing power, new industries have emerged around this technology. This amount of data has also facilitated that new methods of Machine Learning have been invented making the field of Artificial Intelligence a booming field that is proposing a large number of solutions.
+\newline
+
+\subsubsection{Project summary}
+
+Having commented on the concepts of bikesharing and Big data, the present work combines both notions. This practical work aims to demonstrate the capabilities of neural networks to perform prediction tasks and the study of their operation, behaviour and optimisation.
+\newline
+
+
+The problem to be solved is the prediction of bicycle use in the different stations in a city. The aim is to optimise service, customer satisfaction and profitability. The data analysis will predict where bicycles will be needed, in a suitable state for use, in the immediate future. In addition, many of the bicycles that are rented are electric and if they are not charged at the station, the company has to take care of them by taking them to a charging point and relocating them in the city. With the help of a model that predicts where there will be more demand in the near future, bicycles could be located to optimise their supply.
+\newline
+
+\newline
+For the development of this project a simple problem has been chosen which will be solved with different neural network architectures and will be progressively improved by adding more concepts and complexity in each iteration. Different neural network architectures and their different patterns will be studied and compared. It will use architectures such as feed-forward, \acrfull{rnn}, \acrfull{lstm} and \acrfull{ar}. The reason for the use of each of these networks and the results obtained will be explained.
+\newline
+
+
+A dataset provided by the City of Chicago and the Wibee Company will be used. This dataset contains crucial information regarding all trips that were rented during the years 2014 and 2019. The city of Chicago has more than 600 stations of this company and more than 26 million trips were made during this period.
+
+
+\subsection{Methodology and development}
+The present work consists of a theoretical part, on the study of neural networks, focusing on the recurrent ones, and on the other hand a practical part. Both parts will converge, complementing each other and with the help of the tutor, doubts or suggestions for improvement will be resolved.
+
+\subsection{Goals}
+The goals to be achieved are the following:
+
+\subsubsection{General goals}
+\begin{itemize}
+    \item Study on neural networks: Understanding of neural networks, their functioning and algorithms used in them.
+    \item Study on recurrent neural networks as an extension of the neural networks and challenges that comes with it.
+    \item Enable decision makers in the bike sharing system to proactively rebalance the performance and assistance provided at service stations based on accurate predictions of future bike flow.
+\end{itemize}
+
+\subsubsection{Specific  goals}
+\begin{itemize}
+    \item Writing of this document referencing the whole process carried out as well as an explanation of the concepts learned.
+    \item Use of Python 3 data mining libraries such as: NumPy or Pandas.
+    \item Use of machine learning Python 3 libraries such as: Tensorflow or Keras.
+    \item Creation of a feed-forward neuronal network and study of its behaviour with different values for its hyperparameters.
+    \item Creation of a recurrent neural network and study of its behaviour with different values for its hyperparameters.
+    \item Creation of an \acrshort{lstm} neural network and study of its behaviour with different values for its hyperparameters.
+    \item Creation of an \acrshort{ar} neural network and study of its behaviour with different values for its hyperparameters.
+    \item Compare the results of the different models and justify their metrics.
+\end{itemize}

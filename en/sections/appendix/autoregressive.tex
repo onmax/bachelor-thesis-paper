@@ -1,0 +1,67 @@
+\section{\acrlong{ar} model code}\label{app:ar}
+
+\begin{minted}[fontsize=\scriptsize]{python}
+import tensorflow as tf
+from tensorflow.keras.layers import LSTMCell, RNN, Dense
+
+class AutoRegressive(tf.keras.Model):
+    def __init__(self, lstm_units, steps, stations):
+        super().__init__()
+        self.steps = steps
+        self.stations = stations
+        self.lstm_units = lstm_units
+        
+        # First LSTM layer
+        self.lstm_cell = LSTMCell(lstm_units)
+        # Also wrap the LSTMCell in an RNN to simplify the `warmup` method.
+        self.lstm_rnn = RNN(self.lstm_cell, return_state=True)
+        
+        # Ouput layer
+        self.dense = Dense(stations, activation="relu")
+
+    def warmup(self, inputs):
+        # inputs.shape => (batch, time, features)
+        # x.shape => (batch, lstm_units)
+        x, *state = self.lstm_rnn(inputs)
+
+        # predictions.shape => (batch, features)
+        prediction = self.dense(x)
+        return prediction, state
+
+    def call(self, inputs, training=None):
+        # Use a TensorArray to capture dynamically unrolled outputs.
+        predictions = []
+
+        # Initialize the lstm state
+        prediction, state = self.warmup(inputs)
+
+        # Insert the first prediction
+        predictions.append(prediction)
+
+        # Run the rest of the prediction steps
+        for n in range(1, self.steps):
+            # Use the last prediction as input.
+            x = prediction
+            
+            # Concat with timestamp variables
+            x = tf.concat([x, inputs[:,-1,-3:]], 1)
+            
+            # Execute one lstm step.
+            x, state = self.lstm_cell(x, states=state, training=training)
+                                      
+            # Convert the lstm output to a prediction.
+            prediction = self.dense(x)
+            
+            # Add the prediction to the output
+            predictions.append(prediction)
+
+        # predictions.shape => (time, batch, features)
+        predictions = tf.stack(predictions)
+        
+        # predictions.shape => (batch, time, features)
+        predictions = tf.transpose(predictions, [1, 0, 2])
+        
+        return predictions
+\end{minted}
+
+\footnote{Code based on the official Tensorflow tutorial \textit{"Time series forecasting"} \cite{tensorflow2015-whitepaper}}

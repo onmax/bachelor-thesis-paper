@@ -1,0 +1,42 @@
+\section{Problmes encountered}
+
+During the development of this work we have not encountered different problems both in the development of neural networks and in the pre-processing necessary to create eldataset
+
+\subsection{Structure of the dataset}
+Every neural network requires a well-defined architecture before it can be created. Among other parameters, it is necessary to define both the input and output with which the model will work. At the beginning of the development, when training the first test networks, we obtained very bad values for what we were waiting for. This was a consequence of the poor definitionhttps://www.overleaf.com/project/600b5b96eebd9b7f42454677 that had been carried out to train the networks.
+\newline
+
+The mistake was mainly in what I was contemplating from the beginning that a network could accept a matrix as input, which is not true. A network always has to work with vectors for the variables $x$ and $y$.
+\newline
+
+Later, I developed a structure that made more sense and with which the network obtained better results. The problem with this solution was the training time when trying to train a basic network. It was unfeasible to continue with this data structure.
+\newline
+
+Finally, after several meetings with the tutor and with the help of a PhD student we concluded that the best way to train the neural network was with the data structure explained earlier in this paper. This solution, despite being very intuitive and easy to understand, has taken me a great deal of time to come up with.
+
+
+\subsection{Development of pre-processing}
+In order to develop a data structure with which the models of the neural networks can be generated, it is necessary to restructure the dataset we use to a dataset with which the necessary windows can be generated.
+\newline
+
+
+It is necessary to use some kind of library to facilitate this process. In this work we have decided to use \small{\verb|DataFrame|} \normalsize of pandas together with other libraries like Numpy or Tensorflow, which were my first time using them but I have been able to adapt easily.
+\newline
+
+
+Despite this, I have encountered more problems than expected when using these libraries and they have slowed down my development. In addition, many of the functions that have been developed I was not sure if they performed the task that was entrusted to them and therefore, I have also spent some time to write some unitary tests to ensure that the code was good.
+\newline
+
+Many of these problems have their origin in working with more than 3 dimensions. From that point on, it is much more complex for the human brain to be able to treat structures of this style and it is important to carry out a study and a pseudo-code of what you want to do previously. I will certainly try to apply this to future projects: spending more time on design.
+
+
+
+\subsection{Overfitting problem}
+
+The problem of overfitting is a common problem when training neural networks. As explained in section \ref{overfitting}, overfitting appears after a period of time in which the network has already learned and begins to memorize the data, causing it not to adapt to new situations correctly and may even worsen the results of the model.
+\newline
+
+For that reason, I have dedicated part of my work to studying how to avoid overfitting. Initially I used the strategy of working with regulators, which are equations with which the weights of a network are changed more slowly. But this solution has not had the expected results. What was achieved was that overfitting appeared but in much more advanced training iterations, so I dismissed this use of regulators.
+\newline
+
+Finally, two techniques have been used in the current models to avoid overfitting. Firstly, a technique has been used by which a learning rate is chosen with which the model converges when calculating the gradient. This technique is based on using several values of the learning rate and studying how the descent of the gradient behaves with respect to it. In second place, the technique of using Dropout (see section \ref{dropout}) has been used, which basically activates and deactivates connections between neurons in the network in a random way so that none is dispensable, that is to say, that it contains a great deal of knowledge regarding the patterns that are to be predicted.

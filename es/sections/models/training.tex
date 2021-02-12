@@ -1,0 +1,28 @@
+\subsection{Entrenamiento, validación y test de las redes neuronales}
+
+
+Una vez creado los modelos, se ha codificado una función para automatizar el proceso de entrenamiento, validación y test de cada uno de los modelos, además de obtener las métricas que se necesitarán para poder estudiar y comparar los distintos modelos. El código se puede leer en el Apéndice \ref{app:compile_and_fit}.
+\newline
+
+El código se divide en tres funciones distintas:
+\begin{itemize}
+    \item La función \small{\verb|compile_and_fit()|}, dado un modelo de arquitectura de red (denso, \acrshort{rnn}, \acrshort{lstm} o \acrshort{ar}), compilará dicho modelo usando como función de coste la pérdida de Huber y como optimizador para el descenso del gradiente, el optimizador de \textit{Adam}. La tasa de aprendizaje usada ha sido un valor entre $0.001$ y $0.0001$ dependiendo del modelo. Para obtener este valor, se ha hecho uso de la técnica explicada en la Sección \ref{overfitting} en la cual se calcula la tasa de aprendizaje de forma iterativa y estudiando que valores hacen que el descenso del gradiente converja de forma más rápida y constante.
+    \newline
+    
+    El optimizador usado ha sido el optimizador de \textit{Adam}. Esta decisión se ha tomada con el mismo proceso que la decisión de cuantas capas y cuantas neuronas usar en la red, a base de prueba y error. Seguramente, que exista una combinación que obtenga resultados mejores, pero desde la experiencia de los resultados obtenidos con las distintas comparaciones, los modelos no suelen mejorar en exceso por este tipo de decisiones, es mucho más importante otros hiperparámetros como la función de activación a usar, una tasa de aprendizaje óptima o el uso de \textit{Dropout} entre capas.
+    \newline
+    
+    Otra técnica para evitar la aparición de \textit{Overfitting} es el uso de una función denominada \small{\verb|EarlyStopping|} que parará el proceso de aprendizaje si considera que el modelo está empezando a memorizar y no aprender o si después de una \small{\verb|patience|} igual a 10 \textit{epochs} el modelo no ha aprendido de forma considerable respecto al pasado. Esto se hace a partir de \small\verb|callbacks|, que son funciones que se ejecutan tras ejecutar un \textit{epoch}. Otro \small\verb|callback| usado ha sido una función que en tiempo real dibuja las gráficas de como está yendo el proceso de aprendizaje con las métricas con el \textit{dataset} de entrenamiento como el \textit{dataset} de validación.
+    \newline
+    
+    En cuanto a la función de coste usada, se explicará en la siguiente sección junto con las métricas usadas para medir el desempeño de los modelos.
+    \newline
+    
+    
+     \item La función \small{\verb|compile_and_fit()|} solo trabaja con un modelo y con un tamaño de ventana en concreto. Por otro lado, se tiene la función \small{\verb|model_generator()|} que dado un modelo, se encarga de crear todas ventanas con los distintos tamaños y entrenar el modelo para cada una de las ventanas. Como se ha explicado previamente, en total se han usado 15 tamaños de ventana distinto, por lo que una llamada a la función \small{\verb|model_generator()|} provoca que se entrenen 15 modelos distintos y por lo tanto el tiempo de este proceso suele durar entre 2 y 5 horas dependiendo del modelo siendo entrenado.
+    \newline
+    
+    \item Por cada modelo entrenado y para no desperdiciar los resultados, la función \small{\verb|get_metrics()|} se encarga de computar dichos datos y guardarlos en un \acrshort{csv} que será utilizado por otras funciones más adelante para poder mostrar los resultados y dibujar distintas gráficas.
+\end{itemize}
+
+

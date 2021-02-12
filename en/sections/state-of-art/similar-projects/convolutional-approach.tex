@@ -1,0 +1,22 @@
+\subsubsection{Predicting station-level hourly demand in a large-scale bike-sharing network: A graph convolutional neural network approach}
+
+This study proposes a convolutional \cite{LIN2018258} neural network model that can learn hidden heterogeneous correlations by pairs between stations to predict the hourly demand at the station level on a large scale.
+\newline
+
+Two architectures of the GCNN-DDGF model are explored: The CNN-DDGF model that contains the convolution and forward blocks, and GCNNrec-DDGF also contains an \acrshort{lstm} block to capture the time dependencies in the demand series. In addition, four types of GCNN models are proposed whose adjacency matrices are based on various shared bicycle system data, including the spatial distance matrix (SD), the demand matrix (SD), the average trip duration matrix and the demand correlation matrix. These six types of GCNN models and seven other reference models are built and compared in a \textit{Citi Bike} data set for New York City that includes 272 stations and over 28 million transactions from 2013 to 2016.
+\newline
+
+The results show that the GCNNrecDDGF has the best performance in terms of the \acrshort{rmse}, the \acrshort{mae} and the coefficient of determination (R2), followed by the GCNNregDDGF. They outperform the other models. It is found to capture some information similar to the details embedded in the SD, DE and DC matrices. More importantly, it also uncovers hidden heterogeneous correlations in pairs between stations that are not revealed by any of those matrices.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{rr}
+\toprule
+ Métrica & Valor \\
+\midrule
+ \acrshort{mae} &  1.44 \\
+ \acrshort{rmse} &  2.46 \\
+ R$^2$ &  0.67 \\
+\bottomrule
+\end{tabular}
+\end{table}

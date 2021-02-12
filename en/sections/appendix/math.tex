@@ -1,0 +1,46 @@
+\section{Mathematical variables}
+\begin{tabular}{@{}ll@{}} 
+\textbf{Symbol} & \textbf{Description} \\
+$L_i$ & Neural Network Layer $i$\\
+$L_{i,j}$ & Neuron $j$ of the layer $i$ of the neural network\\
+\\
+$x$ & Model Input Vector \\
+$x'$ & $[[1] \oplus x]^T$ \\
+\\
+$b$ & Bias of a neuron \\
+$b^{L_{i, j}}$ & Neuron Bias $j$ in the layer $i$ \\
+\\\\
+$w$ & Weight vector \\
+$w*$ & New weight vector after calculation with $\nabla f$\\
+$w^{L_{i, j}}$ & Weight vector for the neuron $j$ of the layer $i$ \\
+$W^{L_{i}}$ &  matrix of the $i$ layer also formed by the $b$ values \\
+$W*$ & New weight matrix after calculation with  $\nabla f$\\
+\\
+$z$ & Dot product between $w$ and $y$ or $w$ and $x$\\
+$z^{L_i}$ & Dot product between $w^{L_i}$ and $y{L_{i-1}}$ or $w^{L_1}$ and $x$\\
+\\
+$a()$ & Activation function\\
+$a()^{L_i}$ & Activation function for the layer $i$\\
+$a'()$ & Activation function derivative\\
+$a'()^{L_i}$ & Activation function derivative for the $i$ layer\\
+\\
+$y$ & Model Output Vector \\
+$y^{L_i}$ & Output vector for the layer $L_i$ \\
+$\hat{y}$ & Real Vector \\
+$\hat{y_i}$ & Actual vector that is in the $i$ position of the dataset \\
+\\
+$c()$ & Cost function \\
+$c'()$ & Cost function derivative \\
+\\
+$\nabla f$ & Gradient vector \\
+$\nabla f_b$ & Gradient vector value for $b$\\
+$\nabla f_w$ & Subvector of the gradient vector for $w$\\
+\\
+$\partial$ & Partial derivative\\
+$\frac{\partial a}{\partial b}$ & Partial derivative of $a$ with respect to $b$ \\
+\\
+$\eta$ & \acrlong{lr} \\
+\\
+
+$\oplus$ & Concatenation of vectors
+\end{tabular}

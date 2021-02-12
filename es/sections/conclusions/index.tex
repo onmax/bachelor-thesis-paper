@@ -1,0 +1,57 @@
+\section{Conclusiones}
+
+\subsection{Estudio de los resultados}
+
+Las gráficas presentadas en la anterior sección, muestran las métricas obtenidas usando el \small\verb|DataFrame| de test. Usando estos datos, refleja como de bueno son los modelos ante datos que nunca antes había visto y como se comportaría en un entorno en producción. En general, todos los resultados son mejores que los resultados con el modelo base.
+\newline
+
+Si se comparan las arquitecturas entre sí, se puede ver el resultado que se esperaba. Los modelos densos son los peores de los cuatro, a pesar de que sus resultados son bastantes buenos de por sí. Usando una arquitectura que pueda aprender también del pasado se pueden mejorar ligeramente los resultados respecto al modelo denso. Estas mejorías son notables en los modelos que usan ventanas pequeñas. Por el contrario, a mayor tamaño de ventanas las \acrshort{srnn} comienzan a rendir ligeramente peor que las densas. El motivo de dicho patrón puede darse debido estos modelos tienen demasiada información y no pueden sintetizar información muy lejana en el pasado. Este es el principal problema de las \acrshort{srnn} que se discutía en la Sección \ref{rnn_theory}.
+\newline
+
+En cuanto a las arquitecturas \acrshort{lstm} cabe mencionar que los resultados calculados generan una excepción en cuanto a que todos los modelos actúan mejor que el modelo base. En concreto, cuando se hace uso de arquitecturas \acrshort{lstm} para una predicción de único intervalo, es decir, los tamaños de ventana son: (3, 1), (5, 1), (8, 1), (12, 1) o (24, 1), los resultados obtenidos son pésimos.
+\newline
+
+Finalmente, el modelo \acrlong{ar} es el modelo que mejor resultados genera y el más regular al cambio de configuración de tamaños de ventanas y existe poca diferencia entre los modelos que menos predicen (3, 1) frente a los modelos que abarcan más intervalos para predecir ((48, 12) o (48, 24)) siendo este el modelo que mejores resultados obtiene en general.
+\newline
+
+Otro aspecto a mencionar y que es común para la mayoría de los modelos es que a medida que aumentan la cantidad de intervalos a predecir, el error también aumenta ligeramente en un grado que depende del modelo que se esté evaluando. Este aumento es tan pequeño que se podría concluir que los resultados obtenidos para todas las ventanas son los mismos para todas las configuraciones. Por lo cual, daría igual usar una ventana de tamaño (8, 3) que una ventana (36, 12); Las métricas son prácticamente iguales.
+
+
+\subsection{Conocimientos adquiridos}
+
+Durante el desarrollo de este trabajo he podido adquirir distintos conocimientos. Antes, de comenzar con el proyecto mi principal objetivo personal con este proyecto era poder entender las matemáticas que había detrás de una red neuronal y como funcionaba el algoritmo de \textit{Backpropagation} a nivel práctico. Sin duda alguna, no solo he sido capaz de aprender dichos conceptos sino que además he aprendido a como usar distintas herramientas y librerías para poder trabajar con redes neuronales.
+\newline
+
+Bien es cierto que no hace falta entender el funcionamiento de una red neuronal para poder usar una, pero también es cierto que con limitados conocimientos provoca que no se obtengan los mejores resultados. Por esa razón, decidí embarcarme en este proyecto y sinceramente creo que he superado mis expectativas y he conocido nuevas fascinantes ramas sobre la informática que espero que en el futuro pueda seguir estudiándolas y usándolas en la práctica.
+\newline
+
+Obviamente, el querer aprender todo lo básico sobre redes neuronales no quiere decir que quiera desarrollar toda la parte práctica de nuevo cuando librerías como \textit{Keras} o \textit{Tensorflow} ya ofrecen un uso simplificado de estas. Es por eso, que durante el desarrollo de este proyecto he tenido que investigar parte de estas librerías y me he llevado una grata sorpresa al encontrarme la cantidad de facilidades que ofrece a pesar de solo conocer una parte pequeña de estas. Junto con mi desarrollo y mi aprendizaje dentro de la \acrshort{ai}, seguiré usando y mejorando mis habilidades con estas herramientas o incluso investigar otras parecidas como puedan ser \textit{PyTorch}.
+\newline
+
+Por último, quiero mencionar que el desarrollo del presente documento ha sido desarrollado en su totalidad con \LaTeX y ha sido una gran decisión por las facilidades que aporta puesto que el usuario solo se debe de preocupar de plasmar información. Tareas triviales como el control de índices, numeración de páginas o gestión de bibliografía es completamente ajeno al usuario.
+\newline
+
+A nivel personal, este proyecto me ha ayudado a sentar las bases de lo que es la actividad de investigación y desarrollo, siendo tú el propio dueño de tu tiempo y del trabajo que se quiere realizar y no siguiendo un enunciado y mostrando los resultados de un modo específico. He conseguido resolver dudas que se me planteaban antes de realizar el proyecto y ahora entiendo más del trabajo y las innovaciones que cada día se publican. Al mismo tiempo muchas más dudas me han surgido y espero seguir resolviendo estas dudas en el futuro continuando esta labor de investigación.
+\newline
+
+\subsection{Conclusiones en cuanto a la \acrshort{ai}}
+
+Sin duda alguna, los resultados obtenidos por lo general son bastante mejores que el modelo base y demuestra que el trabajo realizado no ha sido en vano. Es comprensible que las redes neuronales se hayan convertido en la familia de algoritmos del \acrlong{ml} más populares de esta última década. Tienen un gran potencial para poder resolver problemas de distinta índole obteniendo buenos resultados. Pero las redes neuronales a su vez tienen un coste y es que el ser humano no sea capaz de interpretar como se ajustan los pesos de las redes neuronales para poder estudiar su comportamiento, el por qué de las decisiones y valores calculados y optimizar aún más los modelos. Esta deficiencia puede ser importante dependiendo de qué problema se esté resolviendo. En el proyecto que se ha presentado en la presente tesis, estos ajustes son indiferentes, puesto que no se quiere interpretar como se ha ajustado el modelo por ningún motivo: Simplemente funciona.
+\newline
+
+Pero hay otros problemas que quizás necesiten saber el por qué de los resultados obtenidos. Un ejemplo claro es el accidente ocurrido en 2018 \cite{uber} debido tanto a un despiste humano como un error de la red neuronal que conducía el coche. Si bien, la responsabilidad final fue del conductor que en el momento del accidente estaba prestando atención al móvil en vez a la carretera y era el máximo responsable y cuya principal tarea era la de supervisar las decisiones del vehículo autónomo, demuestra que este tipo de accidentes seguirán ocurriendo en el futuro, un futuro en el cual quizás no existan volantes y el usuario no pueda interactuar con el control del vehículo de forma directa \cite{nowheel}. Es en este punto donde surgen ciertas dudas legales ante como actuar y qué decisión judicial tomar en caso de accidente.
+\newline
+
+Está pregunta está muy relacionado a otro concepto que quizás mucha parte de la sociedad supone y es que la \acrshort{ai} tiene como consecuencia destruir muchos puestos de trabajo en su totalidad. Y esto no es cierto completamente. Quizás muchos procesos serán sustituidos por este tipo de algoritmos pero siempre habrá alguien encargado de supervisar estas decisiones y siempre habrá un responsable de los resultados que haya obtenido una \acrshort{ai}. Por lo que al mismo tiempo que se destruyen trabajos, otros emergen pero en menor cantidad.
+\newline
+
+Según algunos expertos la cantidad de puestos que se verán destruidos por el auge de la \acrlong{ai} es del 30\% \cite{aijobs} y la creación de nuevos puestos solo será del 8\%, esta revolución tecnológica no tiene precedentes y urge nuevas medidas tanto políticas como legales para su adopción. Además, ¿está aún la sociedad lista y dispuesta a integrar este tipo de tecnologías? La \acrshort{ai} ofrece gran cantidad de herramientas que ayudarán a la humanidad en el desarrollo de sus actividades y en el descubrimiento de nuevos inventos, conceptos y avances científicos y el gran desafío por tanto, no es solo su implantación sino también en la educación de las personas para que sepan convivir de forma cotidiana con ellas y que sean entiendan que la \acrshort{ai} no es un enemigo, sino un aliado.
+\newline
+
+Pero el potencial de la \acrshort{ai} y la inteligencia artificial no solo reside en sus tecnologías sino también en en sus usuarios. Si confiamos (en lo esencial) en la forma en que se gestionan actualmente las sociedades, no se tendrá ninguna razón para no confiar en nosotros mismos para hacer el bien con estas tecnologías. Y si podemos suspender el presentismo y aceptar que la historia nos advierten de que no se debe jugar a ser Dios con las tecnologías poderosas, sino que estas son meramente instructivas, entonces es probable que nos liberemos de la ansiedad innecesaria sobre su uso.
+\newline
+
+La \acrlong{ai} y el aprendizaje automático son producto tanto de la ciencia como del mito. La idea de que las máquinas podrían pensar y realizar tareas igual que los humanos tiene miles de años. Llevar los sistemas cognitivos a las máquinas tampoco son nuevas y junto con la capacidad que tendrán los modelos en superar a los humanos en ámbitos específicos hacen que estemos ante una nueva revolución tecnológica.
+\newline
+
+La mayoría de los escenarios sobre la \acrshort{ai} del futuro son hipotéticos, pero la \acrshort{ai} nos plantea cuestiones existenciales. Muestra que donde la ciencia se detiene, comienzan la filosofía y la espiritualidad dando de nuevo la importancia que una vez tuvieron los campos de las humanidades llevando a cabo pensamiento y conclusiones que difícilmente serán reproducibles por algún sistema artificial.

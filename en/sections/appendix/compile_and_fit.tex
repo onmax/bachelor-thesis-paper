@@ -1,0 +1,97 @@
+\section{Code used to compile, train and evaluate models} \label{app:compile_and_fit}
+
+\begin{minted}[fontsize=\scriptsize]{python}
+import tensorflow as tf
+import pandas as pd
+
+from tf.keras.callbacks import EarlyStopping
+from livelossplot import PlotLossesKeras
+
+
+
+'''
+Compiles and train model
+
+@param model which will be training
+@param window with the Datasets used
+@param lr (learning rate) of the model
+@param max_epoch for training
+@param should_stop if detects overfitting the stops with a patience of 10
+'''
+def compile_and_fit(model, window, lr, max_epochs=150, should_stop=False):
+    model.compile(
+        loss=tf.losses.Huber(),
+        optimizer=tf.optimizers.Adam(lr=lr),
+        metrics=[MeanSquaredLogarithmicError(), MeanSquaredError(), MeanAbsoluteError(),
+                RootMeanSquaredError(), RootMeanSquaredLogarithmicError])
+    
+    # Define the callbacks for the training proccess
+    # PlotLossesKeras plots training and validation for every epoch in real time
+    # early_stopping allows to stop if detects overfitting
+    cbs = [PlotLossesKeras()] + ([EarlyStopping(monitor='val_loss',
+                                                      patience=10,
+                                                      mode='min')] if should_stop else [])
+    
+    model.fit(window.train, epochs=max_epochs,
+                        validation_data=window.val,
+                        callbacks=cbs,
+                        verbose=2)
+    
+'''
+Computes metrics and returns it as DataFrame
+'''
+def get_metrics(model, window):
+    train_metrics = model.evaluate(window.train)
+    val_metrics = model.evaluate(window.val)
+    test_metrics = model.evaluate(window.test)
+
+    metrics_names = model.metrics_names
+    metrics_names[0] = "huber"
+    metrics = pd.DataFrame({
+        "names": metrics_names,
+        "train": train_metrics,
+        "val": val_metrics,
+        "test": test_metrics,
+    })
+
+    return metrics
+
+
+windows_sizes=[(3, 1), (5, 1), (8, 1), (8, 3), (8, 5), (12, 1), 
+                (12, 3), (12, 5), (24, 1), (24, 3), (24, 5)]
+
+'''
+Given a model it will train with different windows sizes
+
+@param model which will be training
+@param max_epoch for training
+@param lr (learning rate) of the model
+@param windows_sizes a list of tuples containing window sizes as (input, output)
+'''
+def model_generator(model, lr, max_epochs=150, windows_sizes=windows_sizes):
+    # Loads and splits the DataFrames
+    df = load_dataset()
+    train_df, val_df, test_df = split_dataset(df)
+    
+    # For every windo
+    for w in windows_sizes:
+        # Create the windoe
+        input_width, steps = r
+        window = WindowGenerator(input_width=input_width,
+                                 label_width=steps,
+                                 shift=steps,
+                                 train_df=train_df,
+                                 val_df=val_df,
+                                 test_df=test_df)
+
+        
+        # Train model
+        compile_and_fit(
+            model, window, lr=lr, should_stop=True, max_epochs=max_epochs)
+        
+        # Save metrics
+        metrics = get_metrics(model, window)
+        filename = "/path/to/results/{model.get_name()}" + \
+                    "-{input_width}-{steps}.csv"
+        metrics.to_csv(filename)
+\end{minted}

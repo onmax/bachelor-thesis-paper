@@ -1,0 +1,62 @@
+\section{Conclusions}
+
+\subsection{Study of the results}
+
+
+The graphs presented in the previous section show the metrics obtained using the test \small{\verb|DataFrame|}\normalsize. Using this data, it reflects how good the models are at data you have never seen before and how they would behave in a production environment. In general, all the results are better than the results with the base model.
+\newline
+
+If you compare the architectures with each other, you can see the result we expected. The dense models are the worst of the four, even though their results are quite good in themselves. By using an architecture that can also learn from the past, the results can be slightly improved compared to the dense model. These improvements are noticeable in the models that use small windows. On the contrary, the larger the window size, the \acrshort{srnn} start to perform slightly worse than the dense ones. The reason for this pattern can be found in the fact that these models have too much information and cannot synthesize information from the past. This is the main problem of \acrshort{srnn} that was discussed in Section \ref{rnn_theory}.
+\newline
+
+As far as \acrshort{lstm} architectures are concerned, it is worth mentioning that the calculated results generate an exception in that all models perform better than the baseline model. In particular, when \acrshort{lstm} architectures are used for a single interval prediction, that is, the window sizes are (3, 1), (5, 1), (8, 1), (12, 1) or (24, 1), the results obtained are abysmal.
+\newline
+
+Finally, the \acrlong{ar} model is the model that generates the best results and the most regular to the change of configuration of window sizes and there is little difference between the models that predict less (3, 1) versus the models that cover more intervals to predict ((48, 12) or (48, 24)) being this the model that obtains better results in general.
+\newline
+
+Another aspect to mention and which is common to most models is that as the number of intervals to be predicted increases, the error also increases slightly to a degree that depends on the model being evaluated. This increase is so small that it could be concluded that the results obtained for all the windows are the same for all the configurations. Therefore, it would be the same to use a window size (8, 3) as a window (36, 12); the metrics are practically the same.
+
+\subsection{Acquired knowledge}
+
+During the development of this work, I have been able to acquire different knowledge. Before starting the project, my main personal objective with this project was to be able to understand the mathematics behind a neural network and how the Backpropagation algorithm works on a practical level. Without a doubt, I have not only been able to learn these concepts but also to learn how to use different tools and libraries to work with neural networks.
+\newline
+
+It is true that it is not necessary to understand the functioning of a neural network in order to use one, but it is also true that limited knowledge does not lead to the best results. For that reason, I decided to embark on this project and I sincerely believe that I have exceeded my expectations and have learned some fascinating new branches of computer science that I hope in the future I will be able to continue studying and using in practice.
+\newline
+
+Obviously, wanting to learn all the basics about neural networks doesn't mean you want to develop the whole practical side again when libraries like Keras or Tensorflow already offer simplified use of them. That's why, during the development of this project, I had to research some of these libraries and I was pleasantly surprised to find the amount of facilities they offer despite knowing only a small part of them. Along with my development and learning within the AI, I will continue to use and improve my skills with these tools or even investigate other similar ones such as PyTorch.
+\newline
+
+Finally, I would like to mention that the development of this document has been carried out entirely with \LaTeX and has been a great decision due to the facilities it provides, since the user only has to worry about capturing information. Trivial tasks such as index control, page numbering or bibliography management are completely alien to the user.
+\newline
+
+On a personal level, this project has helped me to lay the foundations of what research and development activity is all about, with you being the owner of your time and the work to be done, and not following a statement and showing the results in a specific way. I have managed to resolve doubts that were raised before the project was carried out and now I understand more about the work and innovations that are published every day. At the same time many more doubts have arisen and I hope to continue resolving these doubts in the future by continuing this research work.
+\newline
+
+\subsection{Conclusions regarding \acrshort{ai}}
+
+Without doubt, the results obtained are generally much better than the baseline model and show that the work done has not been in vain. It is understandable that neural networks have become the most popular family of \acrlong{ml} algorithms in the last decade. They have a great potential to solve different kinds of problems with good results. But neural networks in turn have a cost and that is that the human being is not able to interpret how the weights of the neural networks are adjusted in order to study their behaviour, why decisions and values are calculated and optimise the models even further. This deficiency can be important depending on which problem is being solved. In the project presented in this thesis, these adjustments are indifferent, since we do not want to interpret how the model has been adjusted for any reason: it simply works.
+\newline
+
+But there are other problems that may need to be addressed in order to achieve the desired results. A clear example is the accident that occurred in 2018 \cite{uber} due to both a human error and an error in the neural network driving the car. Although the final responsibility was that of the driver who, at the time of the accident, was paying attention to the mobile phone instead of the road and was the person most responsible and whose main task was to supervise the decisions of the autonomous vehicle, it shows that this type of accident will continue to occur in the future, a future in which there may be no steering wheels and the user may not be able to interact with the control of the vehicle directly \cite{nowheel}. It is at this point that certain legal doubts arise as to how to act and what judicial decision to take in the event of an accident.
+\newline
+
+
+This question is closely related to another concept that perhaps much of society assumes, and that is that \acrshort{ai} has the effect of destroying many jobs in their entirety. And this is not entirely true. Perhaps many processes will be replaced by this type of algorithm but there will always be someone in charge of supervising these decisions and there will always be someone responsible for the results who has obtained an \acrshort{ai}. So, at the same time as jobs are destroyed, others emerge but in smaller numbers.
+\newline
+
+According to some experts the number of jobs that will be destroyed by the rise of \acrlong{ai} is 30\% \cite{aijobs} and the creation of new jobs will only be 8\%, this technological revolution is unprecedented and new political and legal measures are urgently needed for its adoption. Furthermore, is society still ready and willing to integrate this type of technology? \acrshort{ai} offers a great number of tools that will help humanity in the development of its activities and in the discovery of new inventions, concepts and scientific advances, and the great challenge is therefore not only its implementation but also in the education of people so that they can live with it on a daily basis and understand that \acrshort{ai} is not an enemy but an ally.
+\newline
+
+But the potential of \acrlong{ml} and \acrlong{ai} lies not only in its technologies but also in its users. If we trust (in essence) the way societies are currently managed, there is no reason not to trust ourselves to do good with these technologies. And if we can suspend presentiment and accept that history warns us not to play God with powerful technologies, but that they are merely instructive, then we are likely to be freed from unnecessary anxiety about their use.
+\newline
+
+\acrlong{ai} and \acrlong{ml} are products of both science and myth. The idea that machines could think and perform tasks just like humans is thousands of years old. Bringing cognitive systems into machines is not new either, or together with the ability of models to outperform humans in specific fields, we are facing a new technological revolution.
+\newline
+
+Most of the \acrshort{ai} scenarios of the future are hypothetical, but \acrshort{ai} raises existential questions for us. It shows that where science stops, philosophy and spirituality begin again, giving the importance that the fields of the humanities once had in carrying out thought and conclusions that are difficult to reproduce by any artificial system.
+
+
+
+

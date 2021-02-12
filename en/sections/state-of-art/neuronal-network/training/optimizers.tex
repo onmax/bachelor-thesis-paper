@@ -1,0 +1,14 @@
+\subsubsection{Optimisers}
+
+
+Optimizers are algorithms used to calculate a learning rate dynamically. It is not a static value but varies according to the state of the training. As you run the training, the learning rate may increase, or it may decrease.
+\newline
+
+If we use the metaphor of the person on a mountain, the number of steps that person will descend will be conditioned by different criteria. Some of these criteria may be how far or how fast the person has descended recently.
+\newline
+
+In other words, the learning rate used will be adapted according to different criteria. One of these criteria is how fast the learning is going with respect to the loss of our model among others.
+\newline
+
+Depending on the optimizer chosen, they will use one or other criteria to modify this value. The most used optimises are: Adam\cite{kingma}, Adadelta\cite{zeiler}, Adagra\cite{duchi} o \acrshort{rmsprop}\cite{duchi}.
+\newline

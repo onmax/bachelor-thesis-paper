@@ -1,0 +1,12 @@
+\subsection{Windows}\label{window_ar}
+
+As explained in section \ref{app:window_generator}, predictions can be generated based on the input arguments. That is, you can create a model that, given an $X$ number of intervals, can predict a $Y$ number of intervals. We wanted to compare different adjustments that can be made to the windows and see the results obtained. In short, a different model was created for each of the window sizes.
+\newline
+
+
+From here on, reference will be made to the window configuration with tuples, where the first term is the size of input intervals and the second element is the size of intervals that the model predicts. For example given the following tuple 12-5, it means that the model developed uses a window with 12 input intervals and 5 output intervals.
+\newline
+
+
+A total of 15 different window configurations have been used: 3-1, 5-1, 8-1, 8-3, 8-5, 12-1, 12-3, 12-5, 24-1, 24-3, 24-5, 36-8, 36-12, 48-12, 48-24. As 4 different neuronal architectures have been developed, 60 models plus the basic model have been developed at the end.
+\newline
